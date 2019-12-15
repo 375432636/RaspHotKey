@@ -3,7 +3,7 @@ import requests,json
 def urlpost(data):
     url = 'http://10.3.141.96:8888/keyboard'
     try:
-        r = requests.post(url,data=json.dumps(data),timeout=1)
+        r = requests.post(url,data=json.dumps(data),timeout=5)
     except requests.exceptions.ConnectTimeout:
         print('timeout')
     #print(r.json()) 
