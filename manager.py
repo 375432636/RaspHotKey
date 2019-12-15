@@ -2,7 +2,8 @@ import flask
 import json
 import win32api, win32con
 import time
- 
+import logging
+
 # 创建接口服务，其中(__name__)指当前的python文件，也就是说接口是基于此文档在运行
 server = flask.Flask(__name__)
 def key_even( input_key):
@@ -15,7 +16,7 @@ def key_even( input_key):
 def test_post():
     # request.method是获得请求方法
     dataAll = flask.request.data.decode('utf-8')
-    print('data',dataAll)
+    #print('data',dataAll)
     if flask.request.method == 'POST':
  
         #print(flask.request.json)
@@ -23,7 +24,7 @@ def test_post():
         data = json.loads(data)
         #print(data)
         #data = json.loads(data)
-        print(data)
+        server.logger.info(data)
         if data['value'] == 0:
             with open(r"keypressed.txt","wb") as f:
                 f.write(("%04d"%(int(data['code']))).encode('utf-8'))
