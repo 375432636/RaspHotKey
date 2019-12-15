@@ -25,7 +25,7 @@ def test_post():
         #data = json.loads(data)
         print(data)
         if data['value'] == 0:
-            with open(r"C:\AHK\2nd-keyboard\LUAMACROS\keypressed.txt","wb") as f:
+            with open(r"keypressed.txt","wb") as f:
                 f.write(("%04d"%(int(data['code']))).encode('utf-8'))
             key_even(135+data['device'])
   
