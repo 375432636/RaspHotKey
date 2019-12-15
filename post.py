@@ -1,11 +1,13 @@
 import requests,json
 
 def urlpost(data):
-    url = 'http://10.3.141.96:8888/keyboard'
+    url = 'http://10.3.141.56:8888/keyboard'
     try:
         r = requests.post(url,data=json.dumps(data),timeout=5)
     except requests.exceptions.ConnectTimeout:
         print('timeout')
+    except requests.exceptions.ConnectionError:
+        print('no open the manager')
     #print(r.json()) 
 
 if __name__ == '__main__':
