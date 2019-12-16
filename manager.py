@@ -3,7 +3,7 @@ import json
 import win32api, win32con
 import time
 import logging
-
+ 
 # 创建接口服务，其中(__name__)指当前的python文件，也就是说接口是基于此文档在运行
 server = flask.Flask(__name__)
 def key_even( input_key):
@@ -41,4 +41,4 @@ def test_post():
  
     return json.dumps(dataAll, ensure_ascii=False)
 
-server.run(host='0.0.0.0',port=8888, debug=True)
+server.run(host='0.0.0.0',port=1080, debug=True)

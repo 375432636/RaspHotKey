@@ -228,7 +228,10 @@ else if(key = "0024")
 preset("KEY_O   ")
 ; key: KEY_P    value: 0025
 else if(key = "0025")
-preset("KEY_P   ")
+{
+    clipboard = C:\Users\johhuang1\Python36-32\Scripts\pyinstaller.exe
+    send, +{Insert}
+}
 ; key: KEY_LEFTBRACE   value: 0026
 else if(key = "0026")
 preset("KEY_LEFTBRACE  ")
@@ -252,7 +255,7 @@ else if(key = "0032")
 preset("KEY_D   ")
 ; key: KEY_F    value: 0033
 else if(key = "0033")
-preset("KEY_F   ")
+run C:\Users\johhuang1\Desktop\D&R\scrapy-vagrant
 ; key: KEY_G    value: 0034
 else if(key = "0034")
 preset("KEY_G   ")
@@ -291,14 +294,15 @@ else if(key = "0045")
 preset("KEY_X   ")
 ; key: KEY_C    value: 0046
 else if(key = "0046")
-preset("KEY_C   ")
+
+run cmd.exe /k cd "%clipboard%
+
 ; key: KEY_V    value: 0047
 else if(key = "0047")
 preset("KEY_V   ")
 ; key: KEY_B    value: 0048
 else if(key = "0048")
-msgbox, "you press key b"
-;preset("KEY_B   ")
+run, C:\Users\johhuang1\AppData\Local\Programs\Git\git-bash.exe --cd-to-home
 ; key: KEY_N    value: 0049
 else if(key = "0049")
 preset("KEY_N   ")
