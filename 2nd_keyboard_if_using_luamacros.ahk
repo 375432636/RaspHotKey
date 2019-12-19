@@ -294,15 +294,17 @@ else if(key = "0045")
 preset("KEY_X   ")
 ; key: KEY_C    value: 0046
 else if(key = "0046")
-
-run cmd.exe /k cd "%clipboard%
-
+{
+  run cmd.exe /k cd "%clipboard%
+}
 ; key: KEY_V    value: 0047
 else if(key = "0047")
 preset("KEY_V   ")
 ; key: KEY_B    value: 0048
 else if(key = "0048")
-run, C:\Users\johhuang1\AppData\Local\Programs\Git\git-bash.exe --cd-to-home
+{
+  run, C:\Users\johhuang1\AppData\Local\Programs\Git\git-bash.exe --cd-to-home
+}
 ; key: KEY_N    value: 0049
 else if(key = "0049")
 preset("KEY_N   ")
@@ -465,32 +467,42 @@ preset("KEY_HOME  ")
 
 ; key: KEY_UP    value: 0103
 else if(key = "0103")
+  {
   ;preset("KEY_UP   ")
   send,{Volume_Up}
-
+  }
 ; key: KEY_PAGEUP   value: 0104
 else if(key = "0104")
 preset("KEY_PAGEUP  ")
 
 ; key: KEY_LEFT   value: 0105
 else if(key = "0105")
-  ;preset("KEY_LEFT  ")
+
+{
+    ;preset("KEY_LEFT  ")
   send,{Media_Prev}
+}
 
 ; key: KEY_RIGHT   value: 0106
 else if(key = "0106")
+{
   ;preset("KEY_RIGHT  ")
   send,{Media_Next}
+}
 
 ; key: KEY_END    value: 0107
 else if(key = "0107")
+{
   ;preset("KEY_END   ")
   send,{Media_Play_Pause}
+}
 
 ; key: KEY_DOWN   value: 0108
 else if(key = "0108")
+{
   ;preset("KEY_DOWN  ")
   send,{Volume_Down}
+}
 
 ; key: KEY_PAGEDOWN   value: 0109
 else if(key = "0109")
@@ -762,14 +774,16 @@ preset("KEY_UNKNOWN  ")
 ; key: KEY_WIMAX   value: 0246
 else if(key = "0246")
 preset("KEY_WIMAX  ")
-
 ; key: reload  value: 294410
 else if(key = "294410")
 preset("ctl-z")
 ; key: reload  value: 29191810
 else if(key = "29191810")
-preset("reload")
+
+{
+msgbox, "relod"
 reload this scrip
+}
  
 
 ;from luamacros F24
