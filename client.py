@@ -1,4 +1,5 @@
 from socket import *
+import json 
 
 class soc():
     def __init__(self):
@@ -10,7 +11,8 @@ class soc():
             self.tcp_client = socket(AF_INET,SOCK_STREAM)
             self.tcp_client.connect((ipaddr, port))
             self.flag = True
-        except ConnectionRefusedError:
+        except (error,timeout,OSError) as e:
+            print(e)
             self.flag = False
 
     def SendMessage(self):
@@ -18,10 +20,14 @@ class soc():
             self.tcp_client.send(self.message.encode("utf-8"))
             data = self.tcp_client.recv(1024)
             print("data is %s" %data.decode("utf-8"))
-        except (ConnectionRefusedError,ConnectionResetError,BrokenPipeError):
+            if len(data) == 0:
+                print('len data = 0 ')
+                self.flag == False
+        except (error,timeout,OSError) as e:
+            print(e)
             self.flag = False
     def TryToSend(self,message):
-        self.message = message
+        self.message = json.dumps(message)
         if self.flag:
             self.SendMessage()
         else:
@@ -31,4 +37,6 @@ class soc():
 if __name__ == '__main__':
     connector = soc()
     for i in range(10):
-        connector.TryToSend("1")
+        data = {"type": 1, "value": 0, "code": 107, "device": 0}
+        data = json.dumps(data)
+        connector.TryToSend(data)
