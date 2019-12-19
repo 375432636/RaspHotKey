@@ -18,7 +18,7 @@ class soc():
             self.tcp_client.send(self.message.encode("utf-8"))
             data = self.tcp_client.recv(1024)
             print("data is %s" %data.decode("utf-8"))
-        except ConnectionRefusedError:
+        except (ConnectionRefusedError,ConnectionResetError,BrokenPipeError):
             self.flag = False
     def TryToSend(self,message):
         self.message = message
