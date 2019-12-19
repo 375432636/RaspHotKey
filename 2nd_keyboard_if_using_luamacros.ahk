@@ -462,24 +462,36 @@ preset("KEY_LINEFEED  ")
 ; key: KEY_HOME   value: 0102
 else if(key = "0102")
 preset("KEY_HOME  ")
+
 ; key: KEY_UP    value: 0103
 else if(key = "0103")
-preset("KEY_UP   ")
+  ;preset("KEY_UP   ")
+  send,{Volume_Up}
+
 ; key: KEY_PAGEUP   value: 0104
 else if(key = "0104")
 preset("KEY_PAGEUP  ")
+
 ; key: KEY_LEFT   value: 0105
 else if(key = "0105")
-preset("KEY_LEFT  ")
+  ;preset("KEY_LEFT  ")
+  send,{Media_Prev}
+
 ; key: KEY_RIGHT   value: 0106
 else if(key = "0106")
-preset("KEY_RIGHT  ")
+  ;preset("KEY_RIGHT  ")
+  send,{Media_Next}
+
 ; key: KEY_END    value: 0107
 else if(key = "0107")
-preset("KEY_END   ")
+  ;preset("KEY_END   ")
+  send,{Media_Play_Pause}
+
 ; key: KEY_DOWN   value: 0108
 else if(key = "0108")
-preset("KEY_DOWN  ")
+  ;preset("KEY_DOWN  ")
+  send,{Volume_Down}
+
 ; key: KEY_PAGEDOWN   value: 0109
 else if(key = "0109")
 preset("KEY_PAGEDOWN  ")
