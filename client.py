@@ -27,3 +27,8 @@ class soc():
         else:
             self.MakeConnect()
             self.SendMessage()
+
+if __name__ == '__main__':
+    connector = soc()
+    for i in range(10):
+        connector.TryToSend("1")
