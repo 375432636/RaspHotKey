@@ -1,6 +1,6 @@
 from evdev import InputDevice
 from select import select
-import post
+import client
 
 
 class key():
@@ -9,6 +9,7 @@ class key():
         self.holdkey = 0
         self.list = []
         self.status = True
+        self.connetor = client.soc()
 
     def down(self):
         if self.holdkey == 0:
@@ -32,7 +33,7 @@ class key():
 
             if self.status == True:
                 # 如果没有status = True，才执行上传
-                post.urlpost(data)
+                self.connetor.TryToSend(data)
 
     def exam(self,event):
         if event.code != 0 and event.value != 2 and event.value < 10000:
