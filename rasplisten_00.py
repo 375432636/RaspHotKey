@@ -1,6 +1,6 @@
 from evdev import InputDevice
 from select import select
-import SocketServer_server
+import SocketServer_client
 
 
 class key():
@@ -9,7 +9,7 @@ class key():
         self.holdkey = 0
         self.list = []
         self.status = True
-        self.connetor = SocketServer_server.soc()
+        self.connetor = SocketServer_client.soc()
 
     def down(self):
         if self.holdkey == 0:
