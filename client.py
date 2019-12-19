@@ -36,7 +36,7 @@ class soc():
 
 if __name__ == '__main__':
     connector = soc()
+    data = {"type": 1, "value": 0, "code": 107, "device": 0}
+    #data = json.dumps(data)
     for i in range(10):
-        data = {"type": 1, "value": 0, "code": 107, "device": 0}
-        data = json.dumps(data)
         connector.TryToSend(data)
