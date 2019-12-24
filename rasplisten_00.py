@@ -1,6 +1,12 @@
 from evdev import InputDevice
 from select import select
 import SocketServer_client
+import logging
+#level = logging.DEBUG
+level = logging.INFO
+#level = logging.ERROR
+
+logging.basicConfig(level=level)
 
 
 class key():
@@ -10,6 +16,7 @@ class key():
         self.list = []
         self.status = True
         self.connetor = SocketServer_client.soc()
+        self.connetor.logging.basicConfig(level=level)
 
     def down(self):
         if self.holdkey == 0:
@@ -36,8 +43,8 @@ class key():
                 self.connetor.TryToSend(data)
 
     def exam(self,event):
-        if event.code != 0 and event.value != 2 and event.value < 10000:
-                print("type:%s,value:%s,code:%s"%(event.type,event.value,event.code))
+        if event.code != 0 and event.value < 10000:
+                logging.debug("type:%s,value:%s,code:%s"%(event.type,event.value,event.code))
                 self.key = event.code
                 self.type = event.type
                 self.value= event.value
@@ -54,7 +61,7 @@ class key():
 a = key()
 def detectInputKey(count):
     dev = InputDevice('/dev/input/event%s'%a.device)
-    print(dev)
+    logging.info(dev)
     while True:
         select([dev], [], [])
         for event in dev.read():
